@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+	<head>
+		<title>
+			Le Studio #Dev - {% block title %}{% endblock %}
+		</title>
+        <meta charset="UTF-8" name="description" content="Le Studio #Dev - Work in progress - Agence web créative spécialisée dans la création de sites internet et des webapps responsive et connectées.">
+		<link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+		{% block stylesheets %}
+			<!-- Google fonts-->
+            <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+			<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+			<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+			<!-- Core theme CSS (includes Bootstrap)-->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+			<link href="css/app.css" rel="stylesheet"/>
+		{% endblock %}
+	</head>
+	<body> 
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+		{% block javascripts %}
+			<!-- Font Awesome icons (free version)-->
+			<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+			<!-- Bootstrap core JS-->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+			<!-- Third party plugin JS-->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+			<!-- Core theme JS-->
+			<script>
+				(function ($) {
+                "use strict";
+                // Smooth scrolling using jQuery easing
+                $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+                    if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
+                            if (target.length) {
+                                $("html, body").animate({
+                                scrollTop: target.offset().top - 72
+                                }, 1000, "easeInOutExpo");
+                                return false;
+                                }
+                    }
+                });
+                })(jQuery);
+			</script>
+		{% endblock %}
+	</body>
 </html>
